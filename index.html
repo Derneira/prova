@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Login</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <form id="login">
+   <label for="email">E-mail:</label><br>
+   <input class="texto" type="text" id="email" name="email"><br>
+   <label for="password">Senha:</label><br>
+   <input class="texto" type="password" id="password" name="password"><br>
+   <input class="login" type="submit" value="Login">
+ </form>
+
+ <div id="logout" style="display: none;">
+   <img src="https://i1.wp.com/amplino.org/wp-content/uploads/-000//1/bom-dia-amigos-gif-6.gif?resize=500%2C444&ssl=1">
+   <p>medan ota 🦍</p>
+   <p class="pog">preguiça de fazer css</p>
+   <button id="logoutbtn">Sair</button>
+ </div>
+</body>
+<script>
+     function validarFormulario() {
+     const email = document.getElementById('email').value;
+     const senha = document.getElementById('password').value;
+
+     if (email === '' || senha === '') {
+       alert('Insira um email/senha válido');
+       return false;
+     }
+
+     return true;
+   }
+
+   document.getElementById('login').addEventListener('submit', function(event) {
+     event.preventDefault();
+
+     if (validarFormulario()) {
+       document.getElementById('login').style.display = 'none';
+
+       document.getElementById('logout').style.display = 'block';
+     }
+   });
+
+   document.getElementById('logoutbtn').addEventListener('click', function(event) {
+     event.preventDefault();
+
+     document.getElementById('logout').style.display = 'none';
+
+     document.getElementById('login').style.display = 'block';
+   });
+</script>
+</html>
